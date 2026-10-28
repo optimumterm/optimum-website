@@ -38,6 +38,8 @@ export const downloads = {
 
 export type Platform = keyof typeof downloads;
 
+export const released: readonly Platform[] = ["windows"];
+
 export const principles = [
   { title: "Open source", text: "All of the code is public. Read it, build it, fork it." },
   { title: "No tabs", text: "Window management belongs to your multiplexer. Optimum stays out of its way." },
