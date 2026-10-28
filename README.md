@@ -51,14 +51,15 @@ The GitHub response is cached for 5 minutes. Set `GITHUB_TOKEN` if you hit the A
 ## Project structure
 
 ```
+public/                   PWA icons for the manifest
 src/
   app/
     page.tsx              the page
     layout.tsx            metadata, fonts
     globals.css           Tailwind setup and theme tokens
     opengraph-image.tsx   social preview image
-    apple-icon.tsx        iOS home screen icon
-    icon.svg              favicon
+    favicon.ico, icon.svg favicons
+    apple-icon.png        iOS home screen icon
     robots.ts, sitemap.ts, manifest.ts
     download/[os]/route.ts  redirects to the latest release file
   components/
