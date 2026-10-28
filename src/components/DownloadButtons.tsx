@@ -1,17 +1,15 @@
 "use client";
 
 import { useSyncExternalStore } from "react";
-import { site } from "@/lib/site";
+import { released, site, type Platform } from "@/lib/site";
 
-type Os = "macos" | "windows" | "linux";
-
-const platforms: { os: Os; label: string; href: string }[] = [
+const platforms: { os: Platform; label: string; href: string }[] = [
   { os: "macos", label: "macOS", href: site.links.macos },
   { os: "windows", label: "Windows", href: site.links.windows },
   { os: "linux", label: "Linux", href: site.links.linux },
 ];
 
-const detectOs = (): Os | null => {
+const detectOs = (): Platform | null => {
   const nav = navigator as Navigator & { userAgentData?: { platform?: string } };
   const source = `${nav.userAgentData?.platform ?? ""} ${nav.platform ?? ""} ${nav.userAgent}`;
   if (/android/i.test(source)) return null;
@@ -30,19 +28,32 @@ const primary = `${btn} bg-linear-to-b from-[#f2d27a] to-[#c99a3a] font-semibold
 
 const secondary = `${btn} border border-white/50 text-fg hover:-translate-y-0.5 hover:border-fg hover:bg-white/5 hover:text-fg active:translate-y-0`;
 
+const disabled = `${btn} cursor-not-allowed gap-1.5 border border-white/15 text-fg-3`;
+
 const github = `${btn} group gap-1.5 px-2`;
 
+const isReleased = (os: Platform) => released.includes(os);
+
 export function DownloadButtons() {
-  const current = useSyncExternalStore(subscribe, detectOs, () => null) ?? "macos";
-  const ordered = [...platforms].sort((a, b) => Number(b.os === current) - Number(a.os === current));
+  const detected = useSyncExternalStore(subscribe, detectOs, () => null);
+  const current = detected && isReleased(detected) ? detected : released[0];
+  const rank = (os: Platform) => (os === current ? 0 : isReleased(os) ? 1 : 2);
+  const ordered = [...platforms].sort((a, b) => rank(a.os) - rank(b.os));
 
   return (
     <div className="mt-6 grid grid-cols-1 gap-3 md:mt-7 md:max-w-[500px] md:grid-cols-2">
-      {ordered.map((p) => (
-        <a key={p.os} href={p.href} className={p.os === current ? primary : secondary}>
-          Download for {p.label}
-        </a>
-      ))}
+      {ordered.map((p) =>
+        isReleased(p.os) ? (
+          <a key={p.os} href={p.href} className={p.os === current ? primary : secondary}>
+            Download for {p.label}
+          </a>
+        ) : (
+          <span key={p.os} role="link" aria-disabled="true" className={disabled}>
+            {p.label}
+            <span className="text-sm text-fg-3/70">· coming soon</span>
+          </span>
+        ),
+      )}
       <a href={site.links.github} rel="noopener" className={github}>
         View on GitHub
         <span
