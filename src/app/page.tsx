@@ -30,7 +30,7 @@ const jsonLd = {
         sameAs: [site.links.github],
         codeRepository: site.links.github,
       }),
-      ...(isRealLink(site.links.macos) && { downloadUrl: site.links.macos }),
+      downloadUrl: [site.links.macos, site.links.windows, site.links.linux].map((path) => `${site.url}${path}`),
     },
   ],
 };
