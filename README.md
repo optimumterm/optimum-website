@@ -70,3 +70,7 @@ src/
     site.ts               copy, links, SEO
     brand.ts              logo and background SVGs
 ```
+
+## License
+
+[0BSD](LICENSE). Do whatever you want with it. The Inter and JetBrains Mono fonts keep their own license (SIL Open Font License 1.1).
