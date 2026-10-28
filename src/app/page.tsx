@@ -1,7 +1,7 @@
 import { DownloadButtons } from "@/components/DownloadButtons";
 import { HeroMark } from "@/components/HeroMark";
 import { PrincipleCard } from "@/components/PrincipleCard";
-import { isRealLink, principles, site } from "@/lib/site";
+import { isRealLink, principles, released, site } from "@/lib/site";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -30,7 +30,7 @@ const jsonLd = {
         sameAs: [site.links.github],
         codeRepository: site.links.github,
       }),
-      downloadUrl: [site.links.macos, site.links.windows, site.links.linux].map((path) => `${site.url}${path}`),
+      downloadUrl: released.map((os) => `${site.url}${site.links[os]}`),
     },
   ],
 };
