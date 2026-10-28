@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+}
+
+@theme {
+  --color-bg: #000000;
+  --color-surface: #111113;
+  --color-line: #2e2e33;
+  --color-fg: #ffffff;
+  --color-fg-2: #c9cace;
+  --color-fg-3: #b4b5ba;
+  --color-gold: #e9c46a;
+  --color-gold-hover: #f7d9a8;
+  --color-ink: #141416;
+}
+
+@utility spotlight {
+  background-image: radial-gradient(
+    320px circle at var(--mx, 50%) var(--my, 50%),
+    rgb(233 196 106 / 0.14),
+    transparent 65%
+  );
+}
+
+@utility spotlight-border {
+  background-image: radial-gradient(
+    240px circle at var(--mx, 50%) var(--my, 50%),
+    rgb(233 196 106 / 0.7),
+    transparent 70%
+  );
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    @apply min-h-screen bg-bg font-sans text-fg antialiased;
+  }
+
+  a {
+    @apply text-gold hover:text-gold-hover;
+  }
+
+  a:focus-visible {
+    @apply rounded-[10px] outline-2 outline-offset-3 outline-gold;
+  }
+}
