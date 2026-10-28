@@ -32,7 +32,21 @@ NEXT_PUBLIC_SITE_URL=https://your-domain.com
 
 It's used for canonical links, Open Graph tags, `robots.txt` and `sitemap.xml`. Without it everything points to `http://localhost:3000`.
 
-Download and GitHub links are in `src/lib/site.ts`, along with the page copy and SEO text.
+Page copy, SEO text and links are in `src/lib/site.ts`.
+
+## Downloads
+
+The download buttons point to `/download/macos`, `/download/windows` and `/download/linux`. Each one looks up the latest release of [optimum-term/optimum-term](https://github.com/optimum-term/optimum-term) and redirects to the matching file:
+
+| Route | File |
+| --- | --- |
+| `/download/windows` | `optimum-setup-*.exe` |
+| `/download/macos` | `*.dmg` |
+| `/download/linux` | `*.AppImage` |
+
+If there's no release or no matching file, it redirects to the releases page instead. The patterns are in `src/lib/site.ts`.
+
+The GitHub response is cached for 5 minutes. Set `GITHUB_TOKEN` if you hit the API rate limit.
 
 ## Project structure
 
@@ -46,6 +60,7 @@ src/
     apple-icon.tsx        iOS home screen icon
     icon.svg              favicon
     robots.ts, sitemap.ts, manifest.ts
+    download/[os]/route.ts  redirects to the latest release file
   components/
     HeroMark.tsx          animated logo
     PrincipleCard.tsx     feature card
