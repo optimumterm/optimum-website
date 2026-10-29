@@ -21,24 +21,24 @@ export const site = {
     "open source",
     "minimal terminal",
   ],
-  repo: "optimum-term/optimum-term",
+  repo: "optimumterm/optimum-term",
   links: {
     macos: "/download/macos",
     windows: "/download/windows",
     linux: "/download/linux",
-    github: "https://github.com/optimum-term/optimum-term",
+    github: "https://github.com/optimumterm/optimum-term",
   },
 } as const;
 
 export const downloads = {
-  macos: /\.dmg$/i,
+  macos: /^optimum-.*-macos-.*\.zip$/i,
   windows: /^optimum-setup-.*\.exe$/i,
   linux: /\.appimage$/i,
 } as const;
 
 export type Platform = keyof typeof downloads;
 
-export const released: readonly Platform[] = ["windows"];
+export const released: readonly Platform[] = ["macos", "windows"];
 
 export const principles = [
   { title: "Open source", text: "All of the code is public. Read it, build it, fork it." },
