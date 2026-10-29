@@ -36,12 +36,12 @@ Page copy, SEO text and links are in `src/lib/site.ts`.
 
 ## Downloads
 
-The download buttons point to `/download/macos`, `/download/windows` and `/download/linux`. Each one looks up the latest release of [optimum-term/optimum-term](https://github.com/optimum-term/optimum-term) and redirects to the matching file:
+The download buttons point to `/download/macos`, `/download/windows` and `/download/linux`. Each one looks up the latest release of [optimumterm/optimum-term](https://github.com/optimumterm/optimum-term) and redirects to the matching file:
 
 | Route | File |
 | --- | --- |
 | `/download/windows` | `optimum-setup-*.exe` |
-| `/download/macos` | `*.dmg` |
+| `/download/macos` | `Optimum-*-macos-*.zip` |
 | `/download/linux` | `*.AppImage` |
 
 If there's no release or no matching file, it redirects to the releases page instead. The patterns are in `src/lib/site.ts`.
