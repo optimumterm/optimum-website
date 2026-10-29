@@ -1,4 +1,4 @@
-# optimum-website
+# Optimum website
 
 The website for Optimum, a minimal terminal emulator for multiplexer users.
 
