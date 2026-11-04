@@ -31,8 +31,8 @@ export const site = {
 } as const;
 
 export const downloads = {
-  macos: /^optimum-.*-macos-.*\.zip$/i,
-  windows: /^optimum-setup-.*\.exe$/i,
+  macos: /^optimum\.dmg$/i,
+  windows: /^optimum\.exe$/i,
   linux: /\.appimage$/i,
 } as const;
 
