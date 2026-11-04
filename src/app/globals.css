@@ -6,31 +6,30 @@
 }
 
 @theme {
-  --color-bg: #000000;
-  --color-surface: #111113;
-  --color-line: #2e2e33;
+  --color-bg: #0a0817;
+  --color-surface: #14112a;
+  --color-line: #2a2550;
   --color-fg: #ffffff;
-  --color-fg-2: #c9cace;
-  --color-fg-3: #b4b5ba;
-  --color-gold: #e9c46a;
-  --color-gold-hover: #f7d9a8;
-  --color-ink: #141416;
-}
+  --color-fg-2: #d6d2ee;
+  --color-fg-3: #c4c0e0;
+  --color-accent: #c9b5ff;
+  --color-link: #b79cff;
+  --color-link-hover: #d9c9ff;
+  --color-violet: #9a6bff;
+  --color-indigo: #2e22a8;
+  --color-night: #17113d;
 
-@utility spotlight {
-  background-image: radial-gradient(
-    320px circle at var(--mx, 50%) var(--my, 50%),
-    rgb(233 196 106 / 0.14),
-    transparent 65%
-  );
-}
+  --animate-float: float 8s ease-in-out infinite;
 
-@utility spotlight-border {
-  background-image: radial-gradient(
-    240px circle at var(--mx, 50%) var(--my, 50%),
-    rgb(233 196 106 / 0.7),
-    transparent 70%
-  );
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
 }
 
 @layer base {
@@ -44,10 +43,10 @@
   }
 
   a {
-    @apply text-gold hover:text-gold-hover;
+    @apply text-link hover:text-link-hover;
   }
 
   a:focus-visible {
-    @apply rounded-[10px] outline-2 outline-offset-3 outline-gold;
+    @apply rounded-[10px] outline-2 outline-offset-3 outline-link;
   }
 }
