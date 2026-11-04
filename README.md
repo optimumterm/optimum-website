@@ -40,8 +40,8 @@ The download buttons point to `/download/macos`, `/download/windows` and `/downl
 
 | Route | File |
 | --- | --- |
-| `/download/windows` | `optimum-setup-*.exe` |
-| `/download/macos` | `Optimum-*-macos-*.zip` |
+| `/download/windows` | `Optimum.exe` |
+| `/download/macos` | `Optimum.dmg` |
 | `/download/linux` | `*.AppImage` |
 
 If there's no release or no matching file, it redirects to the releases page instead. The patterns are in `src/lib/site.ts`.
