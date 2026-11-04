@@ -1,6 +1,4 @@
 import { DownloadButtons } from "@/components/DownloadButtons";
-import { HeroMark } from "@/components/HeroMark";
-import { OMark } from "@/components/OMark";
 import { PrincipleCard } from "@/components/PrincipleCard";
 import { isRealLink, principles, released, site } from "@/lib/site";
 
@@ -48,13 +46,7 @@ export default function Home() {
           aria-labelledby="hero-title"
           className="relative overflow-hidden bg-[radial-gradient(120%_90%_at_90%_0%,var(--color-indigo)_0%,var(--color-night)_40%,var(--color-bg)_75%)] md:bg-[radial-gradient(90%_120%_at_85%_10%,var(--color-indigo)_0%,var(--color-night)_38%,var(--color-bg)_70%)]"
         >
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute -top-[110px] -right-[120px] opacity-[0.22] md:-top-[320px] md:-right-[300px] md:opacity-[0.12]"
-          >
-            <OMark decorative className="block size-[420px] md:size-[860px]" />
-          </div>
-          <div className="relative mx-auto grid w-full max-w-[1120px] items-center gap-7 px-5 pt-[72px] pb-16 sm:px-8 md:grid-cols-[minmax(0,1fr)_auto] md:gap-12 md:py-[120px] lg:px-6">
+          <div className="relative mx-auto w-full max-w-[1120px] px-5 pt-[72px] pb-16 sm:px-8 md:py-[120px] lg:px-6">
             <div className="min-w-0">
               <p className="m-0 font-mono text-[13px] tracking-[0.08em] text-accent uppercase md:text-sm">
                 Terminal emulator · macOS, Windows &amp; Linux
@@ -69,9 +61,6 @@ export default function Home() {
                 One window, one job. No tabs. Your multiplexer handles the rest.
               </p>
               <DownloadButtons />
-            </div>
-            <div className="order-first flex md:order-last md:justify-center">
-              <HeroMark />
             </div>
           </div>
         </section>
