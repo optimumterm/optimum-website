@@ -22,15 +22,15 @@ const detectOs = (): Platform | null => {
 const subscribe = () => () => {};
 
 const btn =
-  "inline-flex min-h-12 items-center justify-center rounded-[10px] px-[22px] text-base font-medium no-underline transition duration-200 ease-out motion-reduce:transition-none";
+  "inline-flex min-h-12 items-center justify-center rounded-xl px-[22px] text-base font-medium no-underline transition duration-200 ease-out motion-reduce:transition-none";
 
-const primary = `${btn} bg-linear-to-b from-[#f2d27a] to-[#c99a3a] font-semibold text-ink hover:-translate-y-0.5 hover:text-ink hover:shadow-[0_10px_30px_-8px_rgb(233_196_106/0.55)] hover:brightness-110 active:translate-y-0`;
+const primary = `${btn} bg-linear-[120deg] from-[#8c6bff] to-[#ff86dc] font-semibold text-bg hover:-translate-y-0.5 hover:text-bg hover:shadow-[0_12px_34px_-10px_rgb(154_107_255/0.7)] active:translate-y-0`;
 
-const secondary = `${btn} border border-white/50 text-fg hover:-translate-y-0.5 hover:border-fg hover:bg-white/5 hover:text-fg active:translate-y-0`;
+const secondary = `${btn} border border-[rgb(196_192_224/0.55)] text-fg hover:-translate-y-0.5 hover:bg-[rgb(183_156_255/0.08)] hover:text-fg active:translate-y-0`;
 
 const disabled = `${btn} cursor-not-allowed gap-1.5 border border-white/15 text-fg-3`;
 
-const github = `${btn} group gap-1.5 px-2`;
+const github = `${btn} group gap-1.5 px-2 text-accent`;
 
 const isReleased = (os: Platform) => released.includes(os);
 
@@ -41,7 +41,7 @@ export function DownloadButtons() {
   const ordered = [...platforms].sort((a, b) => rank(a.os) - rank(b.os));
 
   return (
-    <div className="mt-6 grid grid-cols-1 gap-3 md:mt-7 md:max-w-[500px] md:grid-cols-2">
+    <div className="mt-6 grid grid-cols-1 gap-3 md:mt-8 md:max-w-[520px] md:grid-cols-2">
       {ordered.map((p) =>
         isReleased(p.os) ? (
           <a key={p.os} href={p.href} className={p.os === current ? primary : secondary}>
