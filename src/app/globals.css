@@ -15,21 +15,8 @@
   --color-accent: #c9b5ff;
   --color-link: #b79cff;
   --color-link-hover: #d9c9ff;
-  --color-violet: #9a6bff;
   --color-indigo: #2e22a8;
   --color-night: #17113d;
-
-  --animate-float: float 8s ease-in-out infinite;
-
-  @keyframes float {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
-  }
 }
 
 @layer base {
