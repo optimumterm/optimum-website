@@ -12,7 +12,7 @@ const inter = Inter({
 
 const mono = JetBrains_Mono({
   subsets: ["latin"],
-  weight: ["500"],
+  weight: ["500", "600"],
   variable: "--font-jetbrains",
   display: "swap",
 });
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#000000",
+  themeColor: "#0A0817",
   colorScheme: "dark",
   width: "device-width",
   initialScale: 1,
