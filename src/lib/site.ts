@@ -31,9 +31,9 @@ export const site = {
 } as const;
 
 export const downloads = {
-  macos: /^optimum\.dmg$/i,
-  windows: /^optimum\.exe$/i,
-  linux: /\.appimage$/i,
+  macos: "Optimum.dmg",
+  windows: "Optimum.exe",
+  linux: "Optimum.AppImage",
 } as const;
 
 export type Platform = keyof typeof downloads;
