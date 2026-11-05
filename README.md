@@ -36,17 +36,15 @@ Page copy, SEO text and links are in `src/lib/site.ts`.
 
 ## Downloads
 
-The download buttons point to `/download/macos`, `/download/windows` and `/download/linux`. Each one looks up the latest release of [optimumterm/optimum-term](https://github.com/optimumterm/optimum-term) and redirects to the matching file:
+The download buttons point to `/download/macos`, `/download/windows` and `/download/linux`. Each one redirects to the matching file of the latest release of [optimumterm/optimum-term](https://github.com/optimumterm/optimum-term) through GitHub's `releases/latest/download` link, so a new release is picked up immediately:
 
 | Route | File |
 | --- | --- |
 | `/download/windows` | `Optimum.exe` |
 | `/download/macos` | `Optimum.dmg` |
-| `/download/linux` | `*.AppImage` |
+| `/download/linux` | `Optimum.AppImage` |
 
-If there's no release or no matching file, it redirects to the releases page instead. The patterns are in `src/lib/site.ts`.
-
-The GitHub response is cached for 5 minutes. Set `GITHUB_TOKEN` if you hit the API rate limit.
+The redirect is sent with `Cache-Control: no-store`. Release files must keep these exact names. They are in `src/lib/site.ts`.
 
 ## Project structure
 
@@ -63,7 +61,6 @@ src/
     robots.ts, sitemap.ts, manifest.ts
     download/[os]/route.ts  redirects to the latest release file
   components/
-    HeroMark.tsx          animated logo
     PrincipleCard.tsx     feature card
     DownloadButtons.tsx   download buttons, picks the visitor's OS
   lib/
